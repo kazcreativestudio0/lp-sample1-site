@@ -271,31 +271,57 @@
     }
 
     .process {
-      display: grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
-      gap: 12px;
-      margin-top: 22px;
-    }
-
-    .step {
+      margin-top: 26px;
       background: #fff;
       border: 2px solid var(--line);
+      border-radius: 22px;
+      padding: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .flow-diagram {
+      display: grid;
+      grid-template-columns: 1fr 34px 1fr 34px 1fr 34px 1fr 34px 1fr;
+      gap: 10px;
+      align-items: stretch;
+    }
+
+    .flow-step {
+      background: #eef5ff;
+      border: 2px solid #29435f;
       border-radius: 16px;
-      padding: 16px;
-      min-height: 144px;
+      padding: 14px;
+      display: grid;
+      gap: 8px;
     }
 
-    .step span {
+    .flow-step .step-no {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 700;
-      opacity: 0.8;
+      letter-spacing: 0.06em;
+      opacity: 0.85;
     }
 
-    .step h4 {
-      margin: 10px 0 8px;
-      font-size: 18px;
+    .flow-step h4 {
+      margin: 0;
+      font-size: 19px;
       line-height: 1.2;
+    }
+
+    .flow-step p {
+      margin: 0;
+      font-size: 14px;
+      color: var(--soft-ink);
+    }
+
+    .flow-arrow {
+      display: grid;
+      place-items: center;
+      font-size: 28px;
+      font-weight: 900;
+      color: #29435f;
+      user-select: none;
     }
 
     .works {
@@ -487,8 +513,14 @@
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
-      .process {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+      .flow-diagram {
+        grid-template-columns: 1fr;
+      }
+
+      .flow-arrow {
+        transform: rotate(90deg);
+        font-size: 24px;
+        line-height: 1;
       }
     }
 
@@ -503,9 +535,12 @@
 
       .grid-3,
       .works,
-      .pricing,
-      .process {
+      .pricing {
         grid-template-columns: 1fr;
+      }
+
+      .process {
+        padding: 14px;
       }
 
       .price.recommend {
@@ -590,11 +625,37 @@
         </div>
 
         <div class="process reveal">
-          <div class="step"><span>ステップ 01</span><h4>ヒアリング</h4><p>現状の課題とKPIを明確化。</p></div>
-          <div class="step"><span>ステップ 02</span><h4>構成設計</h4><p>訴求軸・ワイヤーを作成。</p></div>
-          <div class="step"><span>ステップ 03</span><h4>制作実装</h4><p>デザインとHTML実装を同時進行。</p></div>
-          <div class="step"><span>ステップ 04</span><h4>公開計測</h4><p>タグ設定・イベント計測を確認。</p></div>
-          <div class="step"><span>ステップ 05</span><h4>改善運用</h4><p>数字ベースで継続最適化。</p></div>
+          <div class="flow-diagram">
+            <div class="flow-step">
+              <span class="step-no">STEP 01</span>
+              <h4>ヒアリング</h4>
+              <p>現状の課題とKPIを明確化。</p>
+            </div>
+            <div class="flow-arrow" aria-hidden="true">→</div>
+            <div class="flow-step">
+              <span class="step-no">STEP 02</span>
+              <h4>構成設計</h4>
+              <p>訴求軸・ワイヤーを作成。</p>
+            </div>
+            <div class="flow-arrow" aria-hidden="true">→</div>
+            <div class="flow-step">
+              <span class="step-no">STEP 03</span>
+              <h4>制作実装</h4>
+              <p>デザインとHTML実装を同時進行。</p>
+            </div>
+            <div class="flow-arrow" aria-hidden="true">→</div>
+            <div class="flow-step">
+              <span class="step-no">STEP 04</span>
+              <h4>公開計測</h4>
+              <p>タグ設定・イベント計測を確認。</p>
+            </div>
+            <div class="flow-arrow" aria-hidden="true">→</div>
+            <div class="flow-step">
+              <span class="step-no">STEP 05</span>
+              <h4>改善運用</h4>
+              <p>数字ベースで継続最適化。</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -636,7 +697,7 @@
         <div class="pricing">
           <article class="price reveal">
             <h4>スターター</h4>
-            <p class="yen">¥300,000〜</p>
+            <p class="yen">¥30,000〜</p>
             <ul class="list">
               <li>・LP 1ページ制作</li>
               <li>・構成案 + デザイン + 実装</li>
@@ -645,7 +706,7 @@
           </article>
           <article class="price recommend reveal">
             <h4>グロース</h4>
-            <p class="yen">¥600,000〜</p>
+            <p class="yen">¥60,000〜</p>
             <ul class="list">
               <li>・戦略設計 + LP制作</li>
               <li>・計測設計 + タグ実装</li>
@@ -654,7 +715,7 @@
           </article>
           <article class="price reveal">
             <h4>スケール</h4>
-            <p class="yen">¥1,000,000〜</p>
+            <p class="yen">¥100,000〜</p>
             <ul class="list">
               <li>・複数LP同時制作</li>
               <li>・運用改善を月次継続</li>
@@ -692,8 +753,8 @@
           <h2>LPを、売上装置に変える。</h2>
           <p>現状LPの課題診断から改善案まで、30分で具体化します。まずは無料相談で、次の一手を決めましょう。</p>
           <div class="cta-row" style="justify-content:center;">
-            <a class="btn primary" href="mailto:hello@kaz-lp.studio">無料相談を申し込む</a>
-            <a class="btn secondary" href="tel:+81-00-0000-0000">電話で相談する</a>
+            <a class="btn primary" href="mailto:kaz.crative.studio0@gmail.com">無料相談を申し込む</a>
+            <a class="btn secondary" href="tel:09063535958">電話で相談する</a>
           </div>
         </div>
       </div>
