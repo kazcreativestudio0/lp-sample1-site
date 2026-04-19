@@ -321,7 +321,14 @@
       background:
         linear-gradient(135deg, rgba(15, 139, 111, 0.85), rgba(255, 106, 61, 0.88)),
         linear-gradient(30deg, #ddd, #fff);
+      background-size: cover;
+      background-position: center;
       position: relative;
+    }
+
+    .mock.real-photo::before,
+    .mock.real-photo::after {
+      display: none;
     }
 
     .mock::before,
@@ -598,21 +605,21 @@
         <h2 class="reveal" style="font-size:clamp(28px,4.2vw,56px);margin:16px 0 24px;line-height:1.08;">制作実績</h2>
         <div class="works">
           <article class="work reveal">
-            <div class="mock"></div>
+            <div class="mock real-photo" style="background-image:url('./assets/work-saas.png');"></div>
             <div class="work-body">
               <h4>SaaS資料請求LP</h4>
               <p>CVR 2.1% → 6.8% / 3ヶ月でCPA 42%改善</p>
             </div>
           </article>
           <article class="work reveal">
-            <div class="mock" style="background:linear-gradient(140deg,#0f8b6f,#0f3762);"></div>
+            <div class="mock real-photo" style="background-image:url('./assets/work-seminar.png');"></div>
             <div class="work-body">
               <h4>BtoBセミナー集客LP</h4>
               <p>登録率 1.9倍 / ファーストビュー刷新で離脱減</p>
             </div>
           </article>
           <article class="work reveal">
-            <div class="mock" style="background:linear-gradient(140deg,#ff6a3d,#ffb347);"></div>
+            <div class="mock real-photo" style="background-image:url('./assets/work-d2c.png');"></div>
             <div class="work-body">
               <h4>D2C新商品ローンチLP</h4>
               <p>初月売上 420万円達成 / スクロール率 28%向上</p>
