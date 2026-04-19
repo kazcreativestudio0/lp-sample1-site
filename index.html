@@ -187,6 +187,13 @@
       overflow: hidden;
     }
 
+    .note {
+      margin: 12px 0 0;
+      font-size: 12px;
+      color: #5a5a5a;
+      line-height: 1.5;
+    }
+
     .hero-card::after {
       content: '';
       position: absolute;
@@ -390,6 +397,18 @@
       font-size: 14px;
     }
 
+    .sample-badge {
+      display: inline-block;
+      margin-bottom: 8px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1.5px solid var(--line);
+      background: #fff6d8;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
     .pricing {
       display: grid;
       gap: 18px;
@@ -582,18 +601,19 @@
         <aside class="hero-card reveal">
           <div class="stat">
             <div class="stat-item">
-              <div class="num" data-count="138">0</div>
-              <div>制作LP数（累計）</div>
+              <div class="num">-</div>
+              <div>制作LP数（累計・サンプル）</div>
             </div>
             <div class="stat-item">
-              <div class="num" data-count="3.4">0</div>
-              <div>平均CVR改善倍率</div>
+              <div class="num">-</div>
+              <div>平均CVR改善倍率（サンプル）</div>
             </div>
             <div class="stat-item">
-              <div class="num" data-count="14">0</div>
-              <div>最短公開日数（日）</div>
+              <div class="num">-</div>
+              <div>最短公開日数（日・サンプル）</div>
             </div>
           </div>
+          <p class="note">※実績数値は未公開です。上記はデモ表示のためのサンプル表記です。</p>
         </aside>
       </div>
 
@@ -664,26 +684,30 @@
       <div class="wrap">
         <span class="tag reveal">制作実績</span>
         <h2 class="reveal" style="font-size:clamp(28px,4.2vw,56px);margin:16px 0 24px;line-height:1.08;">制作実績</h2>
+        <p class="note reveal" style="margin: 0 0 16px;">※以下はデザイン確認用の架空事例です。実在の成果データではありません。</p>
         <div class="works">
           <article class="work reveal">
             <div class="mock real-photo" style="background-image:url('./assets/work-saas.png');"></div>
             <div class="work-body">
+              <span class="sample-badge">架空事例</span>
               <h4>SaaS資料請求LP</h4>
-              <p>CVR 2.1% → 6.8% / 3ヶ月でCPA 42%改善</p>
+              <p>成果データは非公開（サンプル表示）</p>
             </div>
           </article>
           <article class="work reveal">
             <div class="mock real-photo" style="background-image:url('./assets/work-seminar.png');"></div>
             <div class="work-body">
+              <span class="sample-badge">架空事例</span>
               <h4>BtoBセミナー集客LP</h4>
-              <p>登録率 1.9倍 / ファーストビュー刷新で離脱減</p>
+              <p>成果データは非公開（サンプル表示）</p>
             </div>
           </article>
           <article class="work reveal">
             <div class="mock real-photo" style="background-image:url('./assets/work-d2c.png');"></div>
             <div class="work-body">
+              <span class="sample-badge">架空事例</span>
               <h4>D2C新商品ローンチLP</h4>
-              <p>初月売上 420万円達成 / スクロール率 28%向上</p>
+              <p>成果データは非公開（サンプル表示）</p>
             </div>
           </article>
         </div>
@@ -778,29 +802,6 @@
 
     revealTargets.forEach((target) => revealObserver.observe(target));
 
-    const counters = document.querySelectorAll('[data-count]');
-    const counterObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        const el = entry.target;
-        const target = parseFloat(el.dataset.count);
-        let start = 0;
-        const duration = 1200;
-        const startTime = performance.now();
-
-        const tick = (now) => {
-          const progress = Math.min((now - startTime) / duration, 1);
-          const value = start + (target - start) * progress;
-          el.textContent = Number.isInteger(target) ? Math.floor(value) : value.toFixed(1);
-          if (progress < 1) requestAnimationFrame(tick);
-        };
-
-        requestAnimationFrame(tick);
-        counterObserver.unobserve(el);
-      });
-    }, { threshold: 0.5 });
-
-    counters.forEach((counter) => counterObserver.observe(counter));
   </script>
 </body>
 </html>
